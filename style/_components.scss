@@ -1,0 +1,1239 @@
+.container {
+  @include container;
+  & .header-menu {
+    width: 100%;
+    background-color: $background;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    border-bottom: 1px solid #4950572b;
+    & .box-container {
+      background-color: $background;
+      @include box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+      flex-wrap: nowrap;
+      box-sizing: border-box;
+      padding-top: 4px;
+      height: 85px;
+
+      & .box-logo {
+        & .logo {
+          font-weight: 700;
+          text-align: left;
+          font-size: 15;
+          color: $primary_color;
+        }
+      }
+      & .navigation-list {
+        & .box-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: $spacing * 8;
+          text-align: center;
+          & .ul-item {
+            list-style-type: none;
+            & .item {
+              font-weight: 500;
+              font-size: 14px;
+              &:hover {
+                color: $text_primary;
+              }
+            }
+            & .item-Contact {
+              border: 2px solid $primary_color;
+              border-radius: $radius;
+              padding: $spacing * 2 $spacing * 4;
+              transition: 0.4s;
+              font-weight: 500;
+              font-size: 14px;
+              &:hover {
+                color: $text_primary;
+                background-color: $primary_color;
+              }
+            }
+          }
+          & .pic {
+            width: 100%;
+            height: 100%;
+            & img {
+              width: 90px;
+              height: 90px;
+              object-fit: contain;
+            }
+          }
+        }
+        @media screen and (max-width: 1200px) {
+          position: fixed;
+          width: 400px;
+          height: 100vh;
+          background-color: $background;
+          top: 0;
+          bottom: 0;
+          right: -400px;
+          z-index: 99;
+          border-left: 1px solid #49505742;
+          padding-top: $spacing * 10;
+          transition: right 0.4s;
+          & .box-item {
+            display: block;
+            background-color: $background;
+            & .ul-item {
+              text-align: left;
+              padding-bottom: $spacing * 6;
+              padding-left: $spacing * 7;
+              padding-top: $spacing * 6;
+              border-bottom: 1px solid $primary_color;
+              & .item{
+                font-weight: 500;
+                font-size: 18px;
+                
+              }
+              & .item-Contact {
+                font-weight: 500;
+                font-size: 18px;
+              }
+            }
+            & .pic {
+              width: 100%;
+              height: 100%;
+
+              & img {
+                width: 200px;
+                height: 200px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        max-width: 1024px;
+      }
+      @media screen and (max-width: 1024px) {
+        max-width: 768px;
+      }
+      & .toggle-button-label {
+        display: inline-block;
+        width: 27px;
+        height: 20px;
+        position: relative;
+        z-index: 100;
+        margin-left: auto;
+        & .line-1 {
+          display: inline-block;
+          width: 100%;
+          height: 5px;
+          background-color: $text_primary;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          border-radius: $radius;
+          transition: 0.5s;
+        }
+        & .line-2 {
+          display: inline-block;
+          width: 100%;
+          height: 5px;
+          background-color: $text_primary;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: $radius;
+          transition: 0.5s;
+        }
+        & .line-3 {
+          display: inline-block;
+          width: 100%;
+          height: 5px;
+          background-color: $text_primary;
+          position: absolute;
+          top: calc(50% - 2.5px);
+          left: 0;
+          right: 0;
+          border-radius: $radius;
+          transition: 0.5s;
+        }
+        @media screen and (min-width: 1201px) {
+          display: none;
+        }
+      }
+      & #toggle-button:checked ~ .navigation-list {
+        right: 0;
+      }
+      & #toggle-button:checked + .toggle-button-label {
+        & .line-2 {
+          opacity: 0;
+        }
+        & .line-3 {
+          transform: rotate(45deg) translate(6px, -6px);
+        }
+        & .line-1 {
+          transform: rotate(-45deg) translate(0px, 11px);
+        }
+      }
+      #toggle-button {
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+
+  & .banner {
+    border-bottom: 1px solid #dee2e6;
+    background-color: $background;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: $spacing * 12;
+    .box-banner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing * 6;
+      flex-wrap: nowrap;
+      @media screen and (max-width: 1200px) {
+        max-width: 1024px;
+      }
+      @media screen and (max-width: 1024px) {
+        max-width: 768px;
+        padding-top: $spacing * 6;
+      }
+      @media screen and (max-width: 768px) {
+        max-width: 425px;
+        flex-wrap: wrap;
+        padding-top: $spacing * 6;
+        justify-content: center;
+      }
+      @media screen and (max-width: 425px) {
+        max-width: 375px;
+        padding-left: $spacing * 3;
+        padding-right: $spacing * 3;
+      }
+      @media screen and (max-width: 375px) {
+        max-width: 320px;
+        padding-left: $spacing * 3;
+        padding-right: $spacing * 3;
+      }
+    }
+  }
+}
+.box-content-banner {
+  text-align: left;
+  line-height: 1.6;
+  & .hello {
+    font-size: $spacing * 6;
+    font-weight: 400;
+    color: $text_secondary;
+  }
+  & .NJ {
+    font-size: $spacing * 12;
+    font-weight: 500;
+    color: $text_primary;
+    & :hover {
+      color: $primary_color;
+    }
+  }
+  & .job {
+    font-size: $spacing * 7;
+    font-weight: 500;
+    color: $text_secondary;
+    padding-bottom: $spacing * 3;
+  }
+  & .HIRE-ME {
+    @include button-bp;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: $spacing * 4;
+    }
+    @media screen and (max-width: 425px) {
+      display: block;
+      width: 100%;
+    }
+  }
+  & .CV {
+    @include button-wp;
+    margin-left: $spacing * 2;
+    @media screen and (max-width: 1024px) {
+      margin-left: 0;
+    }
+    @media screen and (max-width: 768px) {
+      margin-left: $spacing * 2;
+    }
+    @media screen and (max-width: 425px) {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+    }
+    @media screen and (max-width: 375px) {
+      margin-left: 0;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    text-align: left;
+  }
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+  @media screen and (max-width: 425px) {
+    text-align: center;
+  }
+}
+.svg-box {
+  & .svg {
+    width: 35px;
+    height: 35px;
+    fill: $text_primary;
+    margin-top: $spacing * 5;
+    transition: 0.4s;
+  }
+}
+.as {
+  & :hover {
+    fill: $primary_color;
+  }
+}
+.box-img-banner {
+  & img {
+    object-fit: cover;
+    width: 100%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    width: 100%;
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    width: 100%;
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    width: 100%;
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .button-container {
+    flex-wrap: wrap;
+  }
+}
+.aboutMe-container {
+  @include container;
+  padding-top: $spacing * 4;
+  padding-bottom: $spacing * 16;
+
+  & .box-aboutMe {
+    @include box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing * 4;
+    flex-wrap: nowrap;
+
+    & .img-aboutMe {
+      width: 30%;
+      & img {
+        width: 100%;
+        object-fit: cover;
+      }
+      @media screen and (max-width: 1024px) {
+        width: 40%;
+        & img {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        & img {
+          width: 100%;
+        }
+      }
+    }
+    & .content-aboutMe {
+      width: calc(70% - $spacing * 4);
+      & h2 {
+        font-size: $spacing * 9;
+        font-weight: 500;
+        color: $text_primary;
+      }
+      & h3 {
+        font-size: $spacing * 6;
+        font-weight: 500;
+        color: $primary_color;
+        padding-bottom: $spacing * 2;
+        padding-top: $spacing * 2;
+      }
+      & p {
+        @include paragraph;
+        padding-bottom: $spacing * 4;
+      }
+      & .CV {
+        @include button-bp;
+        margin-top: $spacing * 2;
+      }
+      @media screen and (max-width: 1024px) {
+        width: calc(60% - $spacing * 4);
+      }
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      padding-top: $spacing * 6;
+    }
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      padding-top: $spacing * 6;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    max-width: 1024px;
+  }
+  @media screen and (max-width: 1024px) {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 425px;
+  }
+  @media screen and (max-width: 430px) {
+    padding-left: $spacing * 4;
+    padding-right: $spacing * 4;
+  }
+}
+.Service-container {
+  @include container;
+  padding-top: $spacing * 16;
+
+  & .box-Service {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    & .Service-content {
+      line-height: 1.6;
+      text-align: center;
+      letter-spacing: 0.6;
+      padding-bottom: $spacing * 4;
+      & h2 {
+        @include h2;
+        padding-bottom: $spacing;
+      }
+      & h3 {
+        @include h3;
+        padding-bottom: $spacing;
+      }
+      & p {
+        @include paragraph;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 4;
+      padding-right: $spacing * 4;
+    }
+  }
+}
+.box-content {
+  @include box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing * 4;
+  padding-top: $spacing * 6;
+  flex-wrap: nowrap;
+
+  & .box-web {
+    box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    width: calc(50% - $spacing * 4);
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing * 2;
+    background-color: $background;
+    transition: 0.5s;
+    & .svg-web {
+      width: 88px;
+      height: 88px;
+      fill: $primary_color;
+    }
+    & .web {
+      font-weight: 500;
+      font-size: 18px;
+      color: $text_primary;
+    }
+  }
+  & :hover {
+    background-color: $primary_color;
+    & .svg-web {
+      fill: $background;
+    }
+    & .web {
+      color: $background;
+    }
+  }
+  & .box-seo {
+    box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+    width: calc(50% - $spacing * 4);
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing * 2;
+    background-color: $background;
+    transition: 0.5s;
+    & .svg-seo {
+      width: 88px;
+      height: 88px;
+      fill: $primary_color;
+    }
+    & .seo {
+      font-weight: 500;
+      font-size: 18px;
+      color: $text_primary;
+    }
+  }
+  & :hover {
+    background-color: $primary_color;
+    & .svg-seo {
+      fill: $background;
+    }
+    & .seo {
+      color: $background;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    max-width: 1024px;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 425px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & .box-web {
+      width: 100%;
+    }
+    & .box-seo {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    padding-left: $spacing * 3;
+    padding-right: $spacing * 3;
+  }
+  @media screen and (max-width: 375px) {
+    padding-left: $spacing * 3;
+    padding-right: $spacing * 3;
+  }
+}
+.skill-container {
+  @include container;
+  padding-top: $spacing * 16;
+  & .skill-box {
+    @include box;
+    padding-top: $spacing * 18;
+    padding-bottom: $spacing * 7;
+    text-align: center;
+    & .title-skill {
+      line-height: 1.6;
+      padding-bottom: $spacing * 4;
+      text-align: center;
+      & h2 {
+        @include h2;
+        padding-bottom: $spacing;
+      }
+      & h3 {
+        @include h3;
+        padding-bottom: $spacing;
+      }
+      & p {
+        @include paragraph;
+      }
+    }
+    & .box-content-skills {
+      @include box;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 125px);
+      grid-gap: $spacing * 3;
+
+      & :first-child {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+      & :nth-of-type(2) {
+        grid-column: 3 / 5;
+        grid-row: 1 / 2;
+      }
+      & :nth-of-type(3) {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
+      & :nth-of-type(4) {
+        grid-column: 3 / 5;
+        grid-row: 2 / 3;
+      }
+      & :nth-of-type(5) {
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+      }
+      & .box-Skills {
+        width: calc(100% - $spacing * 3);
+        padding-bottom: $spacing;
+        & h4 {
+          text-align: left;
+          font-weight: 500;
+          font-size: 18px;
+          color: $text_primary;
+        }
+        & .line {
+          width: calc(100% - $spacing * 3);
+          height: 3px;
+          background-color: #eaf0fc;
+          border-radius: $radius;
+          & .line-seo {
+            position: relative;
+            z-index: 1;
+            width: calc(80% - $spacing * 3);
+            height: 3px;
+            background-color: $primary_color;
+          }
+          & .line-WORDPRESS {
+            width: calc(90% - $spacing * 3);
+            height: 3px;
+            background-color: $primary_color;
+          }
+          & .line-JAVASCRIPT {
+            position: relative;
+            z-index: 1;
+            width: calc(70% - $spacing * 3);
+            height: 3px;
+            background-color: $primary_color;
+          }
+          & .line-CSS {
+            position: relative;
+            z-index: 1;
+            width: calc(90% - $spacing * 3);
+            height: 3px;
+            background-color: $primary_color;
+          }
+          & .line-HTML {
+            position: relative;
+            z-index: 1;
+            width: calc(90% - $spacing * 3);
+            height: 3px;
+            background-color: $primary_color;
+          }
+        }
+      }
+      @media screen and (max-width: 768px) {
+        display: block;
+        & .box-Skills {
+          padding-bottom: $spacing * 4;
+        }
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 4;
+      padding-right: $spacing * 4;
+    }
+  }
+}
+.Portfolio-container {
+  padding-top: $spacing * 3;
+  @include container;
+  & .image {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    & img {
+      width: 120px;
+    }
+  }
+
+  & .box-Portfolio {
+    @include box;
+    padding-top: $spacing * 18;
+    & .Portfolio-content {
+      text-align: center;
+      padding-bottom: $spacing * 7;
+      & h2 {
+        @include h2;
+        padding-bottom: $spacing;
+      }
+      & h3 {
+        @include h3;
+        padding-bottom: $spacing;
+      }
+      & p {
+        @include paragraph;
+      }
+    }
+  }
+  & .image-portfolio {
+    display: grid;
+    grid-template-columns: repeat(2, 580px);
+    grid-template-rows: repeat(3, 250px);
+    grid-gap: $spacing * 2;
+    & img {
+      width: 100%;
+      height: 100%;
+      box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      & .portfolio-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+      & .portfolio-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+      & .portfolio-3 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+      & .portfolio-4 {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+      & .portfolio-5 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+      }
+      & .portfolio-6 {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      display: block;
+      padding-left: $spacing * 4;
+      padding-right: $spacing * 4;
+      & img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: $spacing * 4;
+      }
+    }
+  }
+  & .button-more {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: $spacing * 6;
+    margin-bottom: $spacing * 4;
+    & .more {
+      @include button-bp;
+      width: 50%;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 1024px) {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 425px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 425px) {
+    padding-left: $spacing * 3;
+    padding-right: $spacing * 3;
+  }
+}
+.Testmonial-container {
+  padding-top: $spacing * 16;
+  @include container;
+  & .Testmonial-box {
+    @include box;
+    text-align: center;
+    padding-bottom: $spacing * 7;
+
+    & .Testmonial-content {
+      padding-bottom: $spacing * 7;
+      & h2 {
+        @include h2;
+        padding-bottom: $spacing;
+      }
+      & h3 {
+        @include h3;
+        padding-bottom: $spacing;
+      }
+      & p {
+        @include paragraph;
+      }
+    }
+    & .Testmonial-box-People {
+      width: 100%;
+      height: 100%;
+      padding-top: $spacing * 8;
+      box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      & .img-box {
+        width: 100%;
+        height: 100%;
+        padding-bottom: $spacing * 2;
+        & #People-picture {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+      & #name {
+        font-weight: 500;
+        font-size: $spacing * 9;
+        color: $primary_color;
+        padding-bottom: $spacing * 2;
+      }
+      & #job {
+        font-weight: 500;
+        color: $text_primary;
+        font-size: 18px;
+        padding-bottom: $spacing * 2;
+      }
+      & #People-review {
+        @include paragraph;
+        padding-bottom: $spacing * 2;
+        padding-left: $spacing * 3;
+        padding-right: $spacing * 3;
+      }
+      & #a_left {
+        & .svg {
+          display: inline-block;
+          fill: $primary_color;
+        }
+      }
+      & #a_right {
+        & .svg {
+          display: inline-block;
+          fill: $primary_color;
+        }
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 3;
+      padding-right: $spacing * 3;
+    }
+  }
+}
+.blog-container {
+  padding-top: $spacing * 16;
+  @include container;
+  & .blog-box {
+    @include box;
+    text-align: center;
+    padding-bottom: $spacing * 7;
+    & .blog-content {
+      padding-bottom: $spacing * 7;
+      & h2 {
+        @include h2;
+        padding-bottom: $spacing;
+      }
+      & h3 {
+        @include h3;
+        padding-bottom: $spacing;
+      }
+      & p {
+        @include paragraph;
+      }
+    }
+    & .box-content-blog {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing * 3;
+      & .blog {
+        width: calc(100% - $spacing * 3);
+        height: 100%;
+        box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          padding-bottom: $spacing * 2;
+        }
+        & figcaption {
+          width: 100%;
+          height: 100%;
+          padding-left: $spacing * 3;
+          padding-right: $spacing * 3;
+          text-align: left;
+          padding-bottom: $spacing * 4;
+          & h3 {
+            font-weight: 500;
+            font-size: 20px;
+            color: $text_primary;
+            padding-bottom: $spacing * 2;
+            border-bottom: 1px solid #49505775;
+          }
+          & p {
+            @include paragraph;
+            padding-bottom: $spacing * 2;
+          }
+          & a {
+            display: block;
+            @include button-bp;
+            margin-top: $spacing * 2;
+            margin-bottom: $spacing * 2;
+            margin-left: $spacing * 3;
+            margin-right: $spacing * 3;
+          }
+        }
+      }
+      @media screen and (max-width: 768px) {
+        display: block;
+        & .blog {
+          margin-bottom: $spacing * 3;
+        }
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 3;
+      padding-right: $spacing * 3;
+    }
+  }
+}
+.HIRE-ME-container {
+  @include container;
+  margin-top: $spacing * 10;
+  & .HIRE-ME-box {
+    @include box;
+    padding: $spacing * 4;
+    background-color: $primary_color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    & .HIRE-ME-text {
+      line-height: 1.7;
+      & h3 {
+        font-weight: 500;
+        font-size: 20px;
+        color: $background;
+      }
+      & h4 {
+        font-weight: 500;
+        font-size: 18px;
+        color: $background;
+      }
+    }
+    & .HIRE-ME-button {
+      @include button-bp;
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: $spacing * 3;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 3;
+      padding-right: $spacing * 3;
+    }
+  }
+}
+.Contact-container {
+  padding-top: $spacing * 16;
+  @include container;
+  & .Contact-box {
+    @include box;
+    text-align: center;
+    padding-bottom: $spacing * 7;
+    & .Contact-content {
+      padding-bottom: $spacing * 7;
+      & h2 {
+        @include h2;
+        padding-bottom: $spacing;
+      }
+      & h3 {
+        @include h3;
+        padding-bottom: $spacing;
+      }
+      & p {
+        @include paragraph;
+      }
+    }
+    & .box-content-contact {
+      @include container;
+      max-width: 1000px;
+      height: 400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing * 2;
+      box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: -1px 0px 5px 1px rgba(0, 0, 0, 0.5);
+      & .form-content {
+        width: calc(60% - $spacing * 2);
+        height: 100%;
+        & .form-input {
+          width: 100%;
+          height: 100%;
+          text-align: left;
+          padding-left: $spacing * 3;
+          padding-right: $spacing * 3;
+          padding-bottom: $spacing * 2;
+          & h2 {
+            font-weight: 500;
+            color: $text_primary;
+            font-size: 22px;
+            padding-top: $spacing * 7;
+          }
+          & .box-input-1 {
+            margin-bottom: $spacing * 5;
+            margin-top: $spacing * 3;
+            & .form-control {
+              display: block;
+              width: 100%;
+              border-radius: $radius;
+              text-align: left;
+              padding: $spacing * 2 $spacing * 4;
+              background-color: $background;
+              border: 2px solid $primary_color;
+              font-weight: 500;
+              font-size: 18px;
+              font-family: $font_family;
+              color: $text_primary;
+              transition: 0.4s;
+            }
+          }
+          & .box-input-2 {
+            margin-bottom: $spacing * 5;
+            & .form-control {
+              display: block;
+              width: 100%;
+              border-radius: $radius;
+              text-align: left;
+              padding: $spacing * 2 $spacing * 4;
+              background-color: $background;
+              border: 2px solid $primary_color;
+              font-weight: 500;
+              font-size: 18px;
+              font-family: $font_family;
+              color: $text_primary;
+              transition: 0.4s;
+            }
+          }
+          & .box-input-3 {
+            margin-top: $spacing * 5;
+            & .form-control {
+              display: block;
+              width: 100%;
+              border-radius: $radius;
+              text-align: left;
+              padding: $spacing * 4 $spacing * 6;
+              background-color: $background;
+              border: 2px solid $primary_color;
+              font-weight: 500;
+              font-size: 18px;
+              font-family: $font_family;
+              color: $text_primary;
+              transition: 0.4s;
+            }
+          }
+          & .btn-submit {
+            @include button-wp;
+            margin-top: $spacing * 6;
+            width: 100%;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+        & .error-container {
+          font-weight: 400;
+          font-size: 16px;
+          color: red;
+        }
+      }
+      & .pic-moon {
+        width: calc(40% - $spacing * 2);
+        & .picture {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        display: block;
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 3;
+      padding-right: $spacing * 3;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+.foo-container {
+  @include container;
+  & .foo-box {
+    @include box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .Copyright {
+      font-weight: 500;
+      color: $text_primary;
+      font-size: 20px;
+      &:hover {
+        color: $primary_color;
+      }
+    }
+
+    & .social-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing * 3;
+      & .svg {
+        width: 35px;
+        height: 35px;
+        fill: $text_primary;
+        margin-top: $spacing * 5;
+        transition: 0.4s;
+      }
+      .as {
+        & :hover {
+          fill: $primary_color;
+        }
+      }
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 768px;
+    }
+    @media screen and (max-width: 768px) {
+      max-width: 425px;
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+    @media screen and (max-width: 430px) {
+      padding-left: $spacing * 3;
+      padding-right: $spacing * 3;
+    }
+  }
+}

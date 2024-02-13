@@ -1,0 +1,65 @@
+@mixin button-bp() {
+  border-radius: $radius;
+  text-align: center;
+  padding: $spacing * 2 $spacing * 4;
+  background-color: $background;
+  border: 2px solid $primary_color;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: $font_family;
+  color: $text_primary;
+  transition: 0.4s;
+  cursor: pointer;
+  &:hover {
+    color: $background;
+    background-color: $primary_color;
+  }
+}
+@mixin button-wp() {
+  border-radius: $radius;
+  text-align: center;
+  padding: $spacing * 2 $spacing * 4;
+  background-color: $primary_color;
+  border: 2px solid $primary_color;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: $font_family;
+  color: $text_primary;
+  transition: 0.4s;
+  cursor: pointer;
+  &:hover {
+    color: $background;
+    background-color: $primary_color;
+  }
+}
+@mixin paragraph() {
+  font-weight: 400;
+  font-size: 16px;
+  color: $text_secondary;
+  letter-spacing: 0.6;
+  line-height: 1.5;
+}
+@mixin h2() {
+  font-weight: 500;
+  color: $text_primary;
+  font-size: 18px;
+}
+@mixin h3() {
+  font-weight: 500;
+  font-size: $spacing * 9;
+  color: $primary_color;
+}
+@mixin h4() {
+  font-weight: 500;
+  font-size: $spacing * 8;
+  color:$text_primary;
+}
+@mixin container() {
+  width: 100%;
+  background-color: $background;
+}
+@mixin box() {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
